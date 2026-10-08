@@ -50,7 +50,7 @@ export default function IvoryMinimal({ data }: { data: any }) {
 
             <section className="py-12 px-8">
               <h2 className="text-center text-[11px] tracking-[0.5em] uppercase text-stone-500 mb-10">Schedule</h2>
-              <div className="flex flex-col divide-y divide-stone-200 border-y border-stone-200">
+              <div className="flex flex-col divide-y border-y border-stone-200">
                 {data.events.map((event: any, idx: number) => (
                   <motion.div
                     key={idx}

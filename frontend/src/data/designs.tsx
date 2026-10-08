@@ -181,7 +181,7 @@ export const DESIGNS: Design[] = [
     inside: (
       <div className="w-full h-full bg-[#faf8f4] flex flex-col justify-center px-3">
         <p className="text-[5px] tracking-[0.4em] uppercase text-stone-400 mb-2 text-center">Schedule</p>
-        <div className="border-y border-stone-200 divide-y divide-stone-200">
+        <div className="border-y divide-y border-stone-200">
           <div className="py-2"><p className="font-heading text-[10px] text-stone-900">Ceremony</p><p className="text-[5px] text-stone-500">Feb 14 · 11:00 AM</p></div>
           <div className="py-2"><p className="font-heading text-[10px] text-stone-900">Reception</p><p className="text-[5px] text-stone-500">Feb 14 · 7:00 PM</p></div>
         </div>

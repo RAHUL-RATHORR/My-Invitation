@@ -4,11 +4,14 @@ import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Play, Star, CheckCircle2, MapPin, Mail, Phone, Heart } from "lucide-react";
 import Lenis from 'lenis';
+import Link from 'next/link';
+import DesignCard from "@/components/shared/DesignCard";
+import { DESIGNS } from "@/data/designs";
 
 const PREVIEWS = [
-  { name: "Aarav & Meera", theme: "Royal Gates", color: "bg-linear-to-br from-amber-100 to-amber-50" },
-  { name: "Rohan & Priya", theme: "Floral Watercolor", color: "bg-linear-to-br from-rose-100 to-rose-50" },
-  { name: "Vikram & Anjali", theme: "Celestial Night", color: "bg-linear-to-br from-indigo-100 to-indigo-50" }
+  { name: "Aarav & Meera", theme: "Royal Gates", slug: "aarav-weds-meera", color: "bg-linear-to-br from-amber-100 to-amber-50" },
+  { name: "Rohan & Priya", theme: "Floral Watercolor", slug: "rohan-weds-priya", color: "bg-linear-to-br from-rose-100 to-rose-50" },
+  { name: "Vikram & Anjali", theme: "Celestial Night", slug: "vikram-weds-anjali", color: "bg-linear-to-br from-indigo-100 to-indigo-50" }
 ];
 
 const TESTIMONIALS = [
@@ -126,9 +129,9 @@ export default function Home() {
               </motion.p>
               
               <motion.div variants={fadeUp} className="flex gap-4 pt-4">
-                <button className="px-8 py-4 rounded-full bg-primary text-primary-foreground font-bold tracking-widest uppercase text-sm hover:scale-105 active:scale-95 transition-transform shadow-[0_10px_40px_rgba(212,175,55,0.3)]">
+                <a href="#features" id="hero-view-templates" className="px-8 py-4 rounded-full bg-primary text-primary-foreground font-bold tracking-widest uppercase text-sm hover:scale-105 active:scale-95 transition-transform shadow-[0_10px_40px_rgba(212,175,55,0.3)]">
                   View Templates
-                </button>
+                </a>
                 <button className="group px-8 py-4 rounded-full border border-border bg-card text-foreground font-bold tracking-widest uppercase text-sm hover:border-primary transition-all flex items-center gap-2 hover:shadow-[0_10px_40px_rgba(0,0,0,0.05)]">
                   <Play className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" /> Watch Demo
                 </button>
@@ -146,7 +149,7 @@ export default function Home() {
               <motion.div 
                 whileHover={{ rotate: 0, scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative w-[280px] sm:w-[320px] aspect-[9/19] bg-slate-900 rounded-[3rem] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-[4px] border-slate-800 ring-1 ring-primary/20 z-10 mx-auto"
+                className="relative w-70 sm:w-[320px] aspect-9/19 bg-slate-900 rounded-[3rem] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-4 border-slate-800 ring-1 ring-primary/20 z-10 mx-auto"
               >
                 {/* Dynamic Island / Notch */}
                 <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-6 bg-slate-950 rounded-full z-30 flex items-center justify-center">
@@ -164,7 +167,7 @@ export default function Home() {
                       transition={{ duration: 1, ease: "easeInOut" }}
                       className={`absolute inset-0 flex flex-col items-center justify-center ${PREVIEWS[currentPreview].color}`}
                     >
-                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent z-10 pointer-events-none"></div>
+                       <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/10 to-transparent z-10 pointer-events-none"></div>
                        
                        <div className="relative z-20 text-center w-full px-6 mt-auto mb-16">
                           <div className="mb-4 inline-flex items-center gap-1.5 px-3 py-1 bg-white/20 backdrop-blur-md border border-white/30 rounded-full">
@@ -173,9 +176,9 @@ export default function Home() {
                           </div>
                           <h3 className="font-script text-5xl text-white mb-6 drop-shadow-md">{PREVIEWS[currentPreview].name}</h3>
                           
-                          <button className="w-full py-3.5 rounded-xl bg-white/90 backdrop-blur-md text-slate-900 font-bold uppercase tracking-wider text-[10px] flex items-center justify-center gap-2 hover:bg-white transition-all shadow-xl">
+                          <Link href={`/${PREVIEWS[currentPreview].slug}`} className="w-full py-3.5 rounded-xl bg-white/90 backdrop-blur-md text-slate-900 font-bold uppercase tracking-wider text-[10px] flex items-center justify-center gap-2 hover:bg-white transition-all shadow-xl">
                             <Play className="w-3.5 h-3.5 fill-slate-900" /> Live Preview
-                          </button>
+                          </Link>
                        </div>
                     </motion.div>
                   </AnimatePresence>
@@ -241,181 +244,18 @@ export default function Home() {
               </button>
             </motion.div>
             
-            {/* Cards Grid */}
+            {/* Cards Grid - each card mirrors its real template */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              
-              {/* Card 1 */}
-              <motion.div variants={fadeUp} className="bg-white rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col group cursor-pointer">
-                <div className="bg-[#f6f3eb] pt-8 pb-12 px-6 relative h-72 flex justify-center items-center overflow-hidden">
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-white border border-slate-200 text-slate-500 text-[9px] font-bold uppercase rounded-full shadow-xs">Silver Tier</span>
-                  </div>
-                  <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 bg-white border border-blue-200 text-blue-500 text-[9px] font-bold uppercase rounded-full shadow-xs">Traditional</span>
-                  </div>
-                  
-                  {/* Left Phone (Dark) */}
-                  <div className="w-32 h-64 bg-black rounded-3xl border-4 border-slate-800 shadow-xl absolute left-[15%] rotate-[-5deg] z-10 flex flex-col items-center justify-center p-2 group-hover:rotate-[-8deg] group-hover:-translate-x-2 transition-all duration-500">
-                    <div className="w-12 h-3 bg-black absolute top-2 rounded-full z-20"></div>
-                    <div className="w-full h-full border border-white/10 rounded-2xl bg-black flex flex-col items-center justify-center text-center">
-                       <span className="text-2xl">🕉️</span>
-                       <div className="mt-4 px-3 py-1 border border-amber-500/50 rounded-full text-[6px] text-amber-500 uppercase">Shubh Vivah</div>
-                    </div>
-                  </div>
-                  
-                  {/* Right Phone (Light) */}
-                  <div className="w-32 h-64 bg-black rounded-3xl border-4 border-slate-800 shadow-2xl absolute right-[15%] rotate-[5deg] z-20 flex flex-col items-center justify-center p-2 group-hover:rotate-[8deg] group-hover:translate-x-2 transition-all duration-500">
-                    <div className="w-12 h-3 bg-black absolute top-2 rounded-full z-20"></div>
-                    <div className="w-full h-full bg-[#fdfaf5] border border-black/10 rounded-2xl flex flex-col items-center justify-center text-center px-2">
-                       <p className="text-[8px] text-slate-500 mb-2">Save the Date</p>
-                       <h4 className="font-heading text-lg text-slate-800">Aarav <br/>&<br/> Meera</h4>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Content Area */}
-                <div className="p-6 bg-white flex-1 flex flex-col group-hover:bg-amber-50/10 transition-colors">
-                  <h3 className="font-heading text-lg font-bold text-slate-900 mb-4 line-clamp-1 group-hover:text-amber-700 transition-colors">Classic Gujarati Floral Kankotri</h3>
-                  
-                  <div className="flex items-center justify-between mb-5 mt-auto">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xl font-bold text-slate-900">₹999</span>
-                      <span className="text-xs text-slate-400 line-through">₹1,499</span>
-                    </div>
-                    <button className="flex items-center gap-1.5 px-4 py-1.5 border border-primary text-primary rounded-md text-[9px] font-bold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors">
-                      <Play className="w-2.5 h-2.5" /> Preview
-                    </button>
-                  </div>
-                  
-                  <button className="w-full py-3 bg-[#25d366] text-white rounded-lg font-bold text-[11px] uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#20bd5a] transition-colors shadow-md hover:shadow-lg">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                    Order On Whatsapp
-                  </button>
-                </div>
-              </motion.div>
-
-              {/* Card 2 */}
-              <motion.div variants={fadeUp} className="bg-white rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col group cursor-pointer">
-                <div className="bg-[#f6f3eb] pt-8 pb-12 px-6 relative h-72 flex justify-center items-center overflow-hidden">
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-white border border-amber-200 text-amber-500 text-[9px] font-bold uppercase rounded-full shadow-xs">Gold Tier</span>
-                  </div>
-                  <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 bg-white border border-amber-400 text-amber-600 text-[9px] font-bold uppercase rounded-full shadow-xs">Modern</span>
-                  </div>
-                  
-                  {/* Left Phone */}
-                  <div className="w-32 h-64 bg-black rounded-3xl border-4 border-slate-800 shadow-xl absolute left-[15%] rotate-[-5deg] z-10 flex flex-col items-center justify-center p-2 group-hover:rotate-[-8deg] group-hover:-translate-x-2 transition-all duration-500">
-                    <div className="w-12 h-3 bg-black absolute top-2 rounded-full z-20"></div>
-                    <div className="w-full h-full bg-[#3d0c10] border border-primary/30 rounded-2xl flex flex-col items-center justify-center text-center">
-                       <div className="w-px h-16 bg-linear-to-b from-transparent via-primary to-transparent"></div>
-                       <div className="w-6 h-6 rounded-full border border-primary my-2"></div>
-                       <div className="w-px h-16 bg-linear-to-b from-primary via-primary to-transparent"></div>
-                    </div>
-                  </div>
-                  
-                  {/* Right Phone */}
-                  <div className="w-32 h-64 bg-black rounded-3xl border-4 border-slate-800 shadow-2xl absolute right-[15%] rotate-[5deg] z-20 flex flex-col items-center justify-center p-2 group-hover:rotate-[8deg] group-hover:translate-x-2 transition-all duration-500">
-                    <div className="w-12 h-3 bg-black absolute top-2 rounded-full z-20"></div>
-                    <div className="w-full h-full bg-slate-100 border border-black/10 rounded-2xl overflow-hidden relative">
-                       <div className="absolute inset-0 bg-linear-to-b from-blue-100 to-green-100"></div>
-                       <div className="absolute bottom-0 w-full h-1/2 flex justify-center items-end pb-2">
-                          <div className="w-3 h-8 bg-black rounded-t-lg mx-1"></div>
-                          <div className="w-4 h-8 bg-white rounded-t-lg border border-slate-200 mx-1"></div>
-                       </div>
-                       <div className="absolute top-8 left-0 right-0 text-center z-10">
-                         <h4 className="font-script text-xl text-slate-800">Vikram <br/>& Anjali</h4>
-                       </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="p-6 bg-white flex-1 flex flex-col group-hover:bg-amber-50/10 transition-colors">
-                  <h3 className="font-heading text-lg font-bold text-slate-900 mb-4 line-clamp-1 group-hover:text-amber-700 transition-colors">Imperial Palace Elegance</h3>
-                  
-                  <div className="flex items-center justify-between mb-5 mt-auto">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xl font-bold text-slate-900">₹2,499</span>
-                      <span className="text-xs text-slate-400 line-through">₹3,999</span>
-                    </div>
-                    <button className="flex items-center gap-1.5 px-4 py-1.5 border border-primary text-primary rounded-md text-[9px] font-bold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors">
-                      <Play className="w-2.5 h-2.5" /> Preview
-                    </button>
-                  </div>
-                  
-                  <button className="w-full py-3 bg-[#25d366] text-white rounded-lg font-bold text-[11px] uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#20bd5a] transition-colors shadow-md hover:shadow-lg">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                    Order On Whatsapp
-                  </button>
-                </div>
-              </motion.div>
-
-              {/* Card 3 */}
-              <motion.div variants={fadeUp} className="bg-white rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col group cursor-pointer">
-                <div className="bg-[#f6f3eb] pt-8 pb-12 px-6 relative h-72 flex justify-center items-center overflow-hidden">
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-white border border-purple-200 text-purple-500 text-[9px] font-bold uppercase rounded-full shadow-xs">Platinum Tier</span>
-                  </div>
-                  <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 bg-white border border-pink-200 text-pink-500 text-[9px] font-bold uppercase rounded-full shadow-xs">Modern</span>
-                  </div>
-                  
-                  {/* Left Phone */}
-                  <div className="w-32 h-64 bg-black rounded-3xl border-4 border-slate-800 shadow-xl absolute left-[15%] rotate-[-5deg] z-10 flex flex-col items-center justify-center p-2 group-hover:rotate-[-8deg] group-hover:-translate-x-2 transition-all duration-500">
-                    <div className="w-12 h-3 bg-black absolute top-2 rounded-full z-20"></div>
-                    <div className="w-full h-full bg-[#f2fbff] border border-black/5 rounded-2xl flex flex-col items-center justify-center text-center relative overflow-hidden">
-                       <div className="w-12 h-12 rounded-full border border-amber-300 flex items-center justify-center mt-4">
-                         <span className="text-[10px] text-amber-600 font-heading">A & P</span>
-                       </div>
-                       <div className="absolute bottom-0 w-full h-1/2 flex justify-between items-end px-1">
-                          <div className="w-4 h-16 bg-green-700/80 rounded-t-md"></div>
-                          <div className="w-12 h-12 bg-amber-700/80 rounded-t-md"></div>
-                          <div className="w-4 h-16 bg-green-700/80 rounded-t-md"></div>
-                       </div>
-                    </div>
-                  </div>
-                  
-                  {/* Right Phone */}
-                  <div className="w-32 h-64 bg-black rounded-3xl border-4 border-slate-800 shadow-2xl absolute right-[15%] rotate-[5deg] z-20 flex flex-col items-center justify-center p-2 group-hover:rotate-[8deg] group-hover:translate-x-2 transition-all duration-500">
-                    <div className="w-12 h-3 bg-black absolute top-2 rounded-full z-20"></div>
-                    <div className="w-full h-full bg-[#f2fbff] border border-black/10 rounded-2xl overflow-hidden relative">
-                       <div className="absolute top-8 left-0 right-0 text-center z-10">
-                         <h4 className="font-heading text-xs text-amber-700">Rohan <br/>&<br/> Priya</h4>
-                       </div>
-                       <div className="absolute bottom-0 w-full h-1/2 flex justify-center items-end px-1 pb-1">
-                          <div className="w-full h-16 bg-slate-300 rounded-t-md border-t-4 border-pink-400"></div>
-                       </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="p-6 bg-white flex-1 flex flex-col group-hover:bg-amber-50/10 transition-colors">
-                  <h3 className="font-heading text-lg font-bold text-slate-900 mb-4 line-clamp-1 group-hover:text-amber-700 transition-colors">Divine Temple Cinematic</h3>
-                  
-                  <div className="flex items-center justify-between mb-5 mt-auto">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xl font-bold text-slate-900">₹3,999</span>
-                      <span className="text-xs text-slate-400 line-through">₹5,499</span>
-                    </div>
-                    <button className="flex items-center gap-1.5 px-4 py-1.5 border border-primary text-primary rounded-md text-[9px] font-bold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors">
-                      <Play className="w-2.5 h-2.5" /> Preview
-                    </button>
-                  </div>
-                  
-                  <button className="w-full py-3 bg-[#25d366] text-white rounded-lg font-bold text-[11px] uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#20bd5a] transition-colors shadow-md hover:shadow-lg">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                    Order On Whatsapp
-                  </button>
-                </div>
-              </motion.div>
-
+              {DESIGNS.slice(0, 3).map((design) => (
+                <DesignCard key={design.slug} design={design} variants={fadeUp} />
+              ))}
             </div>
 
             {/* Bottom Explore Button */}
             <motion.div variants={fadeUp} className="flex justify-center mt-12">
-              <button className="group px-8 py-3 bg-[#e8be66] text-[#6b4c3b] font-bold text-[10px] uppercase tracking-widest rounded-full hover:bg-[#d6a953] transition-colors flex items-center gap-2 hover:shadow-xl hover:-translate-y-1">
+              <Link href="/templates" id="explore-all-templates" className="group px-8 py-3 bg-[#e8be66] text-[#6b4c3b] font-bold text-[10px] uppercase tracking-widest rounded-full hover:bg-[#d6a953] transition-colors flex items-center gap-2 hover:shadow-xl hover:-translate-y-1">
                 Explore All Templates <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </Link>
             </motion.div>
             
           </motion.div>

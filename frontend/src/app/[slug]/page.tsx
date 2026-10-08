@@ -2,6 +2,9 @@ import { use } from "react";
 import RoyalGates from "@/components/templates/RoyalGates";
 import CelestialNight from "@/components/templates/CelestialNight";
 import FloralWatercolor from "@/components/templates/FloralWatercolor";
+import EmeraldMughal from "@/components/templates/EmeraldMughal";
+import IvoryMinimal from "@/components/templates/IvoryMinimal";
+import HaldiSunshine from "@/components/templates/HaldiSunshine";
 
 export const instant = false;
 
@@ -33,6 +36,34 @@ const MOCK_DB: Record<string, any> = {
       { title: "Haldi", date: "Dec 05, 2026", time: "10:00 AM", venue: "The Royal Gardens", address: "Jaipur, India", mapLink: "#" },
       { title: "Wedding", date: "Dec 06, 2026", time: "6:00 PM", venue: "The Royal Palace", address: "Jaipur, India", mapLink: "#" }
     ]
+  },
+  "arjun-weds-kavya": {
+    slug: "arjun-weds-kavya",
+    theme: "emerald-mughal",
+    couple: { partner1Name: "Arjun", partner2Name: "Kavya", story: "Under royal arches, two hearts become one." },
+    events: [
+      { title: "Sangeet", date: "Jan 18, 2027", time: "7:30 PM", venue: "Umaid Bhawan Palace", address: "Jodhpur, India", mapLink: "#" },
+      { title: "Wedding", date: "Jan 19, 2027", time: "8:00 PM", venue: "Umaid Bhawan Palace", address: "Jodhpur, India", mapLink: "#" }
+    ]
+  },
+  "karan-weds-sneha": {
+    slug: "karan-weds-sneha",
+    theme: "ivory-minimal",
+    couple: { partner1Name: "Karan", partner2Name: "Sneha", story: "Simple moments, timeless love. Join us as we begin forever." },
+    events: [
+      { title: "Ceremony", date: "Feb 14, 2027", time: "11:00 AM", venue: "The Leela Palace", address: "Bengaluru, India", mapLink: "#" },
+      { title: "Reception", date: "Feb 14, 2027", time: "7:00 PM", venue: "The Leela Palace", address: "Bengaluru, India", mapLink: "#" }
+    ]
+  },
+  "dev-weds-isha": {
+    slug: "dev-weds-isha",
+    theme: "haldi-sunshine",
+    couple: { partner1Name: "Dev", partner2Name: "Isha", story: "Sunshine, marigolds and a lifetime of laughter." },
+    events: [
+      { title: "Haldi", date: "Mar 03, 2027", time: "10:00 AM", venue: "Sunflower Lawns", address: "Ahmedabad, India", mapLink: "#" },
+      { title: "Mehendi", date: "Mar 03, 2027", time: "5:00 PM", venue: "Sunflower Lawns", address: "Ahmedabad, India", mapLink: "#" },
+      { title: "Wedding", date: "Mar 04, 2027", time: "7:00 PM", venue: "Hyatt Regency", address: "Ahmedabad, India", mapLink: "#" }
+    ]
   }
 };
 
@@ -48,6 +79,12 @@ export default function InvitationDynamicRoute({ params }: { params: Promise<{ s
       return <CelestialNight data={data} />;
     case "floral-watercolor":
       return <FloralWatercolor data={data} />;
+    case "emerald-mughal":
+      return <EmeraldMughal data={data} />;
+    case "ivory-minimal":
+      return <IvoryMinimal data={data} />;
+    case "haldi-sunshine":
+      return <HaldiSunshine data={data} />;
     case "royal-gates":
     default:
       return <RoyalGates data={data} />;

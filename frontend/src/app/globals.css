@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
+  --font-script: var(--font-script);
+  --color-primary: #D4AF37; /* Metallic Gold */
+  --color-secondary: #3B241A; /* Deep Espresso Mahogany */
+  --color-accent: #F4EBE1; /* Warm Silk */
+  --color-night: #14110F; /* Rich Black */
+}
+
+@layer base {
+  :root {
+    --background: #FCFAF5; /* Alabaster Cream */
+    --foreground: #2C2420; /* Warm Charcoal */
+    
+    --primary-foreground: #FFFFFF;
+    --secondary-foreground: #FCFAF5;
+    --accent-foreground: #2C2420;
+    
+    --card: #FFFFFF;
+    --card-foreground: #2C2420;
+    
+    --border: #E8DECC; /* Champagne */
+    --radius: 1rem;
+
+    /* Fonts (to be overridden by Next.js variables) */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+    --font-script: 'Great Vibes', cursive;
+  }
+
+  .dark {
+    --background: #1A1F2C;
+    --foreground: #FFFDF9;
+    
+    --primary-foreground: #1A1F2C;
+    --secondary-foreground: #FFFFFF;
+    --accent-foreground: #FFFDF9;
+
+    --card: #222938;
+    --card-foreground: #FFFDF9;
+    
+    --border: #3A455C;
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer utilities {
+  .font-script {
+    font-family: var(--font-script);
+  }
+  
+  .glass {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  .dark .glass {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(to right, var(--color-primary), #ca8a04);
+  }
+}

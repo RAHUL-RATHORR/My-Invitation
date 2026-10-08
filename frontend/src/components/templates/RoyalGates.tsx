@@ -43,7 +43,7 @@ export default function RoyalGates({ data }: { data: any }) {
         
         {/* Background texture & overlay */}
         <div className="fixed inset-0 z-0 opacity-[0.05] bg-[url('https://www.transparenttextures.com/patterns/arabesque.png')] pointer-events-none"></div>
-        <div className="fixed inset-0 bg-gradient-to-b from-[#140b0b] via-transparent to-[#140b0b] pointer-events-none z-0"></div>
+        <div className="fixed inset-0 bg-linear-to-b from-[#140b0b] via-transparent to-[#140b0b] pointer-events-none z-0"></div>
 
         {/* Audio Element */}
         <audio ref={audioRef} loop>
@@ -60,16 +60,16 @@ export default function RoyalGates({ data }: { data: any }) {
               <motion.div 
                 initial={{ x: 0 }}
                 exit={{ x: "-100%", transition: { duration: 1.8, ease: [0.7, 0, 0.3, 1] } }}
-                className="absolute left-0 top-0 bottom-0 w-1/2 bg-[#221313] border-r border-[#d4af37]/40 shadow-[15px_0_40px_rgba(0,0,0,0.6)] flex items-center justify-end overflow-hidden"
+                className="absolute left-0 top-0 bottom-0 w-1/2 bg-[#221313] border-r border-[primary]/40 shadow-[15px_0_40px_rgba(0,0,0,0.6)] flex items-center justify-end overflow-hidden"
               >
                  <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/arabesque.png')]"></div>
-                 <div className="h-full w-16 border-x border-[#d4af37]/20 flex flex-col justify-center gap-16 py-12 relative z-10">
-                   {[1,2,3,4,5,6].map(i => <div key={i} className="w-full h-1.5 bg-[#d4af37]/40"></div>)}
+                 <div className="h-full w-16 border-x border-[primary]/20 flex flex-col justify-center gap-16 py-12 relative z-10">
+                   {[1,2,3,4,5,6].map(i => <div key={i} className="w-full h-1.5 bg-[primary]/40"></div>)}
                  </div>
                  {/* Half emblem */}
-                 <div className="absolute right-0 translate-x-1/2 w-40 h-64 border-4 border-[#d4af37] rounded-full flex items-center justify-center bg-[#140b0b] z-20 shadow-xl">
-                   <div className="w-32 h-56 border-2 border-[#d4af37]/60 rounded-full flex items-center justify-center bg-[#221313]">
-                     <span className="text-[#d4af37] font-script text-6xl mr-6">{data.couple.partner1Name[0]}</span>
+                 <div className="absolute right-0 translate-x-1/2 w-40 h-64 border-4 border-[primary] rounded-full flex items-center justify-center bg-[#140b0b] z-20 shadow-xl">
+                   <div className="w-32 h-56 border-2 border-[primary]/60 rounded-full flex items-center justify-center bg-[#221313]">
+                     <span className="text-[primary] font-script text-6xl mr-6">{data.couple.partner1Name[0]}</span>
                    </div>
                  </div>
               </motion.div>
@@ -78,15 +78,15 @@ export default function RoyalGates({ data }: { data: any }) {
               <motion.div 
                 initial={{ x: 0 }}
                 exit={{ x: "100%", transition: { duration: 1.8, ease: [0.7, 0, 0.3, 1] } }}
-                className="absolute right-0 top-0 bottom-0 w-1/2 bg-[#221313] border-l border-[#d4af37]/40 shadow-[-15px_0_40px_rgba(0,0,0,0.6)] flex items-center justify-start overflow-hidden"
+                className="absolute right-0 top-0 bottom-0 w-1/2 bg-[#221313] border-l border-[primary]/40 shadow-[-15px_0_40px_rgba(0,0,0,0.6)] flex items-center justify-start overflow-hidden"
               >
                  <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/arabesque.png')]"></div>
-                 <div className="h-full w-16 border-x border-[#d4af37]/20 flex flex-col justify-center gap-16 py-12 relative z-10">
-                   {[1,2,3,4,5,6].map(i => <div key={i} className="w-full h-1.5 bg-[#d4af37]/40"></div>)}
+                 <div className="h-full w-16 border-x border-[primary]/20 flex flex-col justify-center gap-16 py-12 relative z-10">
+                   {[1,2,3,4,5,6].map(i => <div key={i} className="w-full h-1.5 bg-[primary]/40"></div>)}
                  </div>
-                 <div className="absolute left-0 -translate-x-1/2 w-40 h-64 border-4 border-[#d4af37] rounded-full flex items-center justify-center pointer-events-none z-20">
-                   <div className="w-32 h-56 border-2 border-[#d4af37]/60 rounded-full flex items-center justify-center">
-                     <span className="text-[#d4af37] font-script text-6xl ml-6">{data.couple.partner2Name[0]}</span>
+                 <div className="absolute left-0 -translate-x-1/2 w-40 h-64 border-4 border-[primary] rounded-full flex items-center justify-center pointer-events-none z-20">
+                   <div className="w-32 h-56 border-2 border-[primary]/60 rounded-full flex items-center justify-center">
+                     <span className="text-[primary] font-script text-6xl ml-6">{data.couple.partner2Name[0]}</span>
                    </div>
                  </div>
               </motion.div>
@@ -95,10 +95,10 @@ export default function RoyalGates({ data }: { data: any }) {
                 initial={{ opacity: 0, scale: 0.8 }} 
                 animate={{ opacity: 1, scale: 1 }} 
                 transition={{ delay: 0.5, duration: 1.5 }}
-                className="absolute bottom-20 text-[#d4af37] flex flex-col items-center z-50 drop-shadow-lg"
+                className="absolute bottom-20 text-[primary] flex flex-col items-center z-50 drop-shadow-lg"
               >
                 <motion.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 2 }}>
-                  <span className="font-heading tracking-[0.5em] text-xs uppercase bg-[#140b0b]/80 px-6 py-2 rounded-full border border-[#d4af37]/50">Tap to Open</span>
+                  <span className="font-heading tracking-[0.5em] text-xs uppercase bg-[#140b0b]/80 px-6 py-2 rounded-full border border-[primary]/50">Tap to Open</span>
                 </motion.div>
               </motion.div>
             </motion.div>
@@ -114,7 +114,7 @@ export default function RoyalGates({ data }: { data: any }) {
           >
             {/* Music Control */}
             <div className="fixed top-6 right-6 sm:right-[calc(50%-180px)] z-50">
-              <button onClick={toggleMusic} className={`w-10 h-10 rounded-full bg-[#d4af37]/20 border border-[#d4af37]/50 flex items-center justify-center backdrop-blur-md text-[#d4af37] transition-all ${isPlaying ? 'animate-[spin_4s_linear_infinite]' : ''}`}>
+              <button onClick={toggleMusic} className={`w-10 h-10 rounded-full bg-[primary]/20 border border-[primary]/50 flex items-center justify-center backdrop-blur-md text-[primary] transition-all ${isPlaying ? 'animate-[spin_4s_linear_infinite]' : ''}`}>
                 {isPlaying ? <Music className="w-4 h-4" /> : <Music2 className="w-4 h-4 opacity-50" />}
               </button>
             </div>
@@ -128,7 +128,7 @@ export default function RoyalGates({ data }: { data: any }) {
                   initial={{ y: -100, opacity: 0 }}
                   animate={{ y: "100vh", opacity: [0, 1, 0] }}
                   transition={{ duration: 10 + Math.random() * 10, repeat: Infinity, delay: Math.random() * 5 }}
-                  className="absolute w-1 h-1 bg-[#d4af37] rounded-full blur-[1px]"
+                  className="absolute w-1 h-1 bg-[primary] rounded-full blur-[1px]"
                   style={{ left: `${Math.random() * 100}%` }}
                 />
               ))}
@@ -144,7 +144,7 @@ export default function RoyalGates({ data }: { data: any }) {
                 alt="Om" 
               />
               
-              <motion.p variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="font-heading text-[#d4af37] text-xs md:text-sm tracking-[0.4em] uppercase mb-16 leading-loose max-w-sm">
+              <motion.p variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="font-heading text-[primary] text-xs md:text-sm tracking-[0.4em] uppercase mb-16 leading-loose max-w-sm">
                 Together with their families <br/><span className="inline-block mt-4 text-[#f4ecd8]/60 text-[10px]">Invite you to celebrate the wedding of</span>
               </motion.p>
               
@@ -158,7 +158,7 @@ export default function RoyalGates({ data }: { data: any }) {
                     whileInView={{ rotate: 0, opacity: 1 }}
                     transition={{ duration: 1.5, delay: 0.5 }}
                     viewport={{ once: true }}
-                    className="text-[#d4af37] text-5xl md:text-7xl inline-block my-4 font-sans font-light"
+                    className="text-[primary] text-5xl md:text-7xl inline-block my-4 font-sans font-light"
                   >
                     &
                   </motion.span>
@@ -176,8 +176,8 @@ export default function RoyalGates({ data }: { data: any }) {
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2, duration: 1 }}
                 className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center"
               >
-                <span className="text-[#d4af37]/60 text-[9px] uppercase tracking-widest mb-4">Scroll</span>
-                <motion.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 1.5 }} className="w-px h-16 bg-gradient-to-b from-[#d4af37] to-transparent"></motion.div>
+                <span className="text-[primary]/60 text-[9px] uppercase tracking-widest mb-4">Scroll</span>
+                <motion.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 1.5 }} className="w-px h-16 bg-linear-to-b from-[primary] to-transparent"></motion.div>
               </motion.div>
             </section>
 
@@ -190,14 +190,14 @@ export default function RoyalGates({ data }: { data: any }) {
             <section className="py-24 px-6 md:px-12 relative min-h-screen">
               <motion.h2 
                 variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                className="text-center font-heading text-3xl md:text-4xl text-[#d4af37] mb-24 tracking-[0.3em] uppercase"
+                className="text-center font-heading text-3xl md:text-4xl text-[primary] mb-24 tracking-[0.3em] uppercase"
               >
                 Celebrations
               </motion.h2>
               
               <div className="flex flex-col gap-24 relative">
                 {/* Vertical timeline line connecting events */}
-                <div className="absolute left-1/2 top-10 bottom-10 w-px bg-gradient-to-b from-transparent via-[#d4af37]/40 to-transparent -translate-x-1/2 z-0"></div>
+                <div className="absolute left-1/2 top-10 bottom-10 w-px bg-linear-to-b from-transparent via-[primary]/40 to-transparent -translate-x-1/2 z-0"></div>
 
                 {data.events.map((event: any, idx: number) => (
                   <motion.div 
@@ -208,29 +208,29 @@ export default function RoyalGates({ data }: { data: any }) {
                     viewport={{ once: true, margin: "-100px" }}
                     className={`relative z-10 w-full md:w-[85%] mx-auto ${idx % 2 === 0 ? 'md:ml-0 md:mr-auto' : 'md:mr-0 md:ml-auto'}`}
                   >
-                    <div className="bg-gradient-to-br from-[#2a1a1a]/95 to-[#1c1010]/95 backdrop-blur-md p-10 md:p-12 rounded-[2rem] border border-[#d4af37]/30 text-center shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                    <div className="bg-linear-to-br from-[#2a1a1a]/95 to-[#1c1010]/95 backdrop-blur-md p-10 md:p-12 rounded-4xl border border-[primary]/30 text-center shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                       {/* Top ornate decoration */}
                       <div className="flex justify-center mb-6">
-                        <div className="w-16 h-px bg-[#d4af37]/50 relative">
-                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rotate-45 bg-[#d4af37]"></div>
+                        <div className="w-16 h-px bg-[primary]/50 relative">
+                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rotate-45 bg-[primary]"></div>
                         </div>
                       </div>
 
-                      <h3 className="text-3xl md:text-5xl font-script text-[#d4af37] mb-8 drop-shadow-md">{event.title}</h3>
+                      <h3 className="text-3xl md:text-5xl font-script text-[primary] mb-8 drop-shadow-md">{event.title}</h3>
                       
                       <div className="space-y-6 text-[#f4ecd8] flex flex-col items-center">
-                        <div className="flex items-center gap-4 text-base md:text-lg font-light tracking-[0.1em] uppercase bg-[#140b0b]/50 px-6 py-2 rounded-full border border-[#d4af37]/20">
-                          <Calendar className="w-5 h-5 text-[#d4af37]" /> 
+                        <div className="flex items-center gap-4 text-base md:text-lg font-light tracking-widest uppercase bg-[#140b0b]/50 px-6 py-2 rounded-full border border-[primary]/20">
+                          <Calendar className="w-5 h-5 text-[primary]" /> 
                           {event.date}
                         </div>
-                        <div className="flex items-center gap-4 text-sm md:text-base font-light tracking-[0.1em] uppercase">
-                          <Clock className="w-5 h-5 text-[#d4af37]" /> 
+                        <div className="flex items-center gap-4 text-sm md:text-base font-light tracking-widest uppercase">
+                          <Clock className="w-5 h-5 text-[primary]" /> 
                           {event.time}
                         </div>
-                        <div className="flex flex-col items-center gap-4 mt-8 pt-8 border-t border-[#d4af37]/20 w-full">
-                          <MapPin className="w-6 h-6 text-[#d4af37] mb-2" /> 
+                        <div className="flex flex-col items-center gap-4 mt-8 pt-8 border-t border-[primary]/20 w-full">
+                          <MapPin className="w-6 h-6 text-[primary] mb-2" /> 
                           <div className="space-y-2">
-                            <p className="font-heading text-[#d4af37] tracking-widest text-lg md:text-xl uppercase">{event.venue}</p>
+                            <p className="font-heading text-[primary] tracking-widest text-lg md:text-xl uppercase">{event.venue}</p>
                             <p className="text-sm md:text-base text-[#f4ecd8]/60 leading-relaxed max-w-sm mx-auto font-light">{event.address}</p>
                           </div>
                         </div>
@@ -242,11 +242,11 @@ export default function RoyalGates({ data }: { data: any }) {
             </section>
 
             {/* Footer / Outro */}
-            <section className="py-32 px-6 flex flex-col items-center justify-center text-center relative border-t border-[#d4af37]/20 mt-20">
+            <section className="py-32 px-6 flex flex-col items-center justify-center text-center relative border-t border-[primary]/20 mt-20">
               <motion.div variants={scaleUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                <Heart className="w-12 h-12 text-[#d4af37] mb-10 mx-auto opacity-80" />
+                <Heart className="w-12 h-12 text-[primary] mb-10 mx-auto opacity-80" />
                 <h2 className="font-script text-[#f4ecd8] text-5xl md:text-6xl mb-6">Thank You</h2>
-                <p className="font-heading text-[#d4af37] tracking-[0.3em] uppercase text-xs md:text-sm leading-loose">We can't wait to celebrate<br/>our special day with you</p>
+                <p className="font-heading text-[primary] tracking-[0.3em] uppercase text-xs md:text-sm leading-loose">We can't wait to celebrate<br/>our special day with you</p>
               </motion.div>
             </section>
           </motion.div>

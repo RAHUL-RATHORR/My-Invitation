@@ -146,9 +146,15 @@ export default function Home() {
               <motion.div 
                 whileHover={{ rotate: 0, scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative w-72 md:w-80 h-150 bg-card rounded-[3rem] p-2 shadow-2xl border border-border/50 z-10"
+                className="relative w-[280px] sm:w-[320px] aspect-[9/19] bg-slate-900 rounded-[3rem] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-[4px] border-slate-800 ring-1 ring-primary/20 z-10 mx-auto"
               >
-                <div className="w-full h-full rounded-[2.5rem] overflow-hidden relative bg-accent">
+                {/* Dynamic Island / Notch */}
+                <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-6 bg-slate-950 rounded-full z-30 flex items-center justify-center">
+                  <div className="w-3 h-3 rounded-full bg-slate-900 border border-slate-800 ml-10"></div>
+                </div>
+                
+                {/* Screen */}
+                <div className="w-full h-full rounded-[2.3rem] overflow-hidden relative bg-slate-100 shadow-inner">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={currentPreview}
@@ -156,11 +162,20 @@ export default function Home() {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 1, ease: "easeInOut" }}
-                      className={`absolute inset-0 flex items-center justify-center ${PREVIEWS[currentPreview].color}`}
+                      className={`absolute inset-0 flex flex-col items-center justify-center ${PREVIEWS[currentPreview].color}`}
                     >
-                       <div className="text-center p-6 bg-white/40 backdrop-blur-md rounded-2xl shadow-xl border border-white/50 w-3/4">
-                          <h3 className="font-script text-4xl text-secondary mb-2">{PREVIEWS[currentPreview].name}</h3>
-                          <p className="font-heading text-xs uppercase tracking-widest text-primary font-bold">{PREVIEWS[currentPreview].theme}</p>
+                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent z-10 pointer-events-none"></div>
+                       
+                       <div className="relative z-20 text-center w-full px-6 mt-auto mb-16">
+                          <div className="mb-4 inline-flex items-center gap-1.5 px-3 py-1 bg-white/20 backdrop-blur-md border border-white/30 rounded-full">
+                            <Star className="w-3 h-3 text-amber-300 fill-amber-300" />
+                            <span className="text-[9px] uppercase tracking-widest text-white font-bold">{PREVIEWS[currentPreview].theme}</span>
+                          </div>
+                          <h3 className="font-script text-5xl text-white mb-6 drop-shadow-md">{PREVIEWS[currentPreview].name}</h3>
+                          
+                          <button className="w-full py-3.5 rounded-xl bg-white/90 backdrop-blur-md text-slate-900 font-bold uppercase tracking-wider text-[10px] flex items-center justify-center gap-2 hover:bg-white transition-all shadow-xl">
+                            <Play className="w-3.5 h-3.5 fill-slate-900" /> Live Preview
+                          </button>
                        </div>
                     </motion.div>
                   </AnimatePresence>

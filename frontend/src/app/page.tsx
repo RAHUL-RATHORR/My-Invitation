@@ -120,7 +120,7 @@ export default function Home() {
               variants={staggerContainer}
               initial="hidden"
               animate="visible"
-              className="lg:w-1/2 space-y-8 pt-20 lg:pt-16"
+              className="lg:w-1/2 space-y-8 pt-32 lg:pt-32"
             >
 
               <motion.h1 variants={fadeUp} className="text-5xl lg:text-7xl font-heading leading-tight text-foreground">

@@ -158,7 +158,7 @@ export default function Home() {
               <motion.div 
                 whileHover={{ rotate: 0, scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative w-64 sm:w-[280px] aspect-[9/19] bg-slate-900 rounded-[2.5rem] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-4 border-slate-800 ring-1 ring-primary/20 z-10 mx-auto"
+                className="relative w-64 sm:w-70 aspect-9/19 bg-slate-900 rounded-[2.5rem] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-4 border-slate-800 ring-1 ring-primary/20 z-10 mx-auto"
               >
                 {/* Dynamic Island / Notch */}
                 <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-6 bg-slate-950 rounded-full z-30 flex items-center justify-center">

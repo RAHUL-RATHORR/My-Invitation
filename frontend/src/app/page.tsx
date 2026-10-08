@@ -133,7 +133,7 @@ export default function Home() {
                 Experience premium interactive wedding invitation websites designed for modern Indian weddings. Bespoke layouts with dynamic RSVP, timeline counters, map navigation, and music integration.
               </motion.p>
               
-              <motion.div variants={fadeUp} className="flex gap-4 pt-4">
+              <motion.div variants={fadeUp} className="flex gap-4 !mt-4">
                 <a href="#features" id="hero-view-templates" className="px-8 py-4 rounded-full bg-primary text-primary-foreground font-bold tracking-widest uppercase text-sm hover:scale-105 active:scale-95 transition-transform shadow-[0_10px_40px_rgba(212,175,55,0.3)]">
                   View Templates
                 </a>

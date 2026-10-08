@@ -27,12 +27,12 @@ export default function RoyalGates({ data }: { data: any }) {
   };
 
   // Scroll animation variants
-  const fadeUp = {
+  const fadeUp: any = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } }
   };
   
-  const scaleUp = {
+  const scaleUp: any = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { opacity: 1, scale: 1, transition: { duration: 1, ease: "easeOut" } }
   };
@@ -42,8 +42,8 @@ export default function RoyalGates({ data }: { data: any }) {
       <main className="relative w-full max-w-107.5 min-h-screen bg-[#140b0b] text-[#f4ecd8] shadow-[0_0_60px_rgba(212,175,55,0.15)] overflow-x-hidden z-10 flex flex-col pb-24">
         
         {/* Background texture & overlay */}
-        <div className="absolute inset-0 z-0 opacity-[0.05] bg-[url('https://www.transparenttextures.com/patterns/arabesque.png')] pointer-events-none fixed"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#140b0b] via-transparent to-[#140b0b] pointer-events-none fixed z-0"></div>
+        <div className="fixed inset-0 z-0 opacity-[0.05] bg-[url('https://www.transparenttextures.com/patterns/arabesque.png')] pointer-events-none"></div>
+        <div className="fixed inset-0 bg-gradient-to-b from-[#140b0b] via-transparent to-[#140b0b] pointer-events-none z-0"></div>
 
         {/* Audio Element */}
         <audio ref={audioRef} loop>

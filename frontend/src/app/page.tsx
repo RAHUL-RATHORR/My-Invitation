@@ -108,7 +108,7 @@ export default function Home() {
       <main className="grow pb-16">
         
         {/* UNIQUE HERO SECTION */}
-        <section className="relative min-h-[85vh] pt-24 lg:pt-32 pb-12 flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
           <motion.div style={{ y: yBg }} className="absolute inset-0 z-0 pointer-events-none">
             <div className="absolute top-[-20%] right-[-10%] w-[70vw] h-[70vw] bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-primary/10 via-background/0 to-transparent blur-[120px]"></div>
             <div className="absolute bottom-[-20%] left-[-10%] w-[60vw] h-[60vw] bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-secondary/5 via-background/0 to-transparent blur-[100px]"></div>
@@ -120,7 +120,7 @@ export default function Home() {
               variants={staggerContainer}
               initial="hidden"
               animate="visible"
-              className="lg:w-1/2 space-y-8"
+              className="lg:w-1/2 space-y-8 pt-20 lg:pt-16"
             >
 
               <motion.h1 variants={fadeUp} className="text-5xl lg:text-7xl font-heading leading-tight text-foreground">

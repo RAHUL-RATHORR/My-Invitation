@@ -314,8 +314,8 @@ export default function Home() {
             <h4 className="font-bold uppercase tracking-[0.2em] text-primary text-xs">Contact Us</h4>
             <div className="space-y-4 text-sm text-accent/80 font-light">
               <a href="mailto:dreamsinvite239@gmail.com" className="flex items-center gap-3 hover:text-primary transition-colors"><Mail className="w-4 h-4 text-primary" /> dreamsinvite239@gmail.com</a>
-              <a href="tel:+919327374893" className="flex items-center gap-3 hover:text-primary transition-colors"><Phone className="w-4 h-4 text-primary" /> +91 9327374893</a>
-              <p className="flex items-start gap-3"><MapPin className="w-4 h-4 shrink-0 mt-1 text-primary" /> ROYAL PLAZA, BRTS Rd, Laxmibai Nagar Society, Surat, Gujarat 395006</p>
+              <a href="tel:+917568450691" className="flex items-center gap-3 hover:text-primary transition-colors"><Phone className="w-4 h-4 text-primary" /> +91 7568450691</a>
+              <p className="flex items-start gap-3"><MapPin className="w-4 h-4 shrink-0 mt-1 text-primary" /> Jaipur, Rajasthan, India</p>
             </div>
           </div>
 

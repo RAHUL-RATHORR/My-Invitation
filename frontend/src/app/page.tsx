@@ -36,6 +36,7 @@ const staggerContainer = {
 
 export default function Home() {
   const [currentPreview, setCurrentPreview] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
   const containerRef = useRef(null);
   
   const { scrollYProgress } = useScroll({
@@ -72,6 +73,14 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div ref={containerRef} className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
       
@@ -80,7 +89,7 @@ export default function Home() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed top-0 left-0 right-0 z-50 h-24 bg-background/80 backdrop-blur-xl border-b border-border flex items-center justify-between px-8 md:px-16"
+        className={`fixed top-0 left-0 right-0 z-50 h-24 flex items-center justify-between px-8 md:px-16 transition-all duration-500 ${isScrolled ? 'bg-background/95 backdrop-blur-xl border-b border-border shadow-sm' : 'bg-transparent border-transparent'}`}
       >
         <div className="text-3xl font-bold tracking-widest font-heading text-secondary">
           My Invitation
@@ -96,7 +105,7 @@ export default function Home() {
         </button>
       </motion.nav>
 
-      <main className="grow pt-32 pb-16">
+      <main className="grow pb-16">
         
         {/* UNIQUE HERO SECTION */}
         <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">

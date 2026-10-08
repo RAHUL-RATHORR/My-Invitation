@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import { use } from "react";
 import RoyalGates from "@/components/templates/RoyalGates";
 import CelestialNight from "@/components/templates/CelestialNight";
 import FloralWatercolor from "@/components/templates/FloralWatercolor";
@@ -36,9 +36,8 @@ const MOCK_DB: Record<string, any> = {
   }
 };
 
-export default function InvitationDynamicRoute() {
-  const params = useParams();
-  const slug = params.slug as string;
+export default function InvitationDynamicRoute({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
   const data = MOCK_DB[slug] || MOCK_DB["aarav-weds-meera"]; // Fallback for testing
 
   if (!data) return <div className="min-h-screen flex items-center justify-center">Loading...</div>;

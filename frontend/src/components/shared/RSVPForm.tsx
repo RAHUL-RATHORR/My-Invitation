@@ -36,7 +36,8 @@ export default function RSVPForm({ events, invitationId }: { events: string[], i
   const onSubmit = async (data: RSVPFormValues) => {
     setIsSubmitting(true);
     try {
-      const response = await fetch("http://localhost:5000/api/rsvp", {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+      const response = await fetch(`${apiUrl}/api/rsvp`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ invitationId, ...data }),

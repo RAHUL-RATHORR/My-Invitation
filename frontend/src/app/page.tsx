@@ -118,9 +118,9 @@ export default function Home() {
                 <span className="text-xs font-bold tracking-[0.2em] uppercase text-primary">India's Premier Invitation Studio</span>
               </motion.div>
               
-              <motion.h1 variants={fadeUp} className="text-4xl lg:text-5xl font-heading leading-tight text-foreground">
+              <motion.h1 variants={fadeUp} className="text-5xl lg:text-7xl font-heading leading-tight text-foreground">
                 Craft Your Dream <br />
-                <span className="font-script text-6xl lg:text-7xl block mt-2 bg-clip-text text-transparent bg-linear-to-r from-secondary to-amber-700">Cinematic</span>
+                <span className="font-script text-7xl lg:text-9xl block mt-2 bg-clip-text text-transparent bg-linear-to-r from-secondary to-amber-700">Cinematic</span>
                 Invitations
               </motion.h1>
               
@@ -149,7 +149,7 @@ export default function Home() {
               <motion.div 
                 whileHover={{ rotate: 0, scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative w-64 sm:w-[280px] aspect-9/19 bg-slate-900 rounded-[3rem] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-4 border-slate-800 ring-1 ring-primary/20 z-10 mx-auto"
+                className="relative w-64 sm:w-[280px] aspect-[9/19] bg-slate-900 rounded-[2.5rem] p-3 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-4 border-slate-800 ring-1 ring-primary/20 z-10 mx-auto"
               >
                 {/* Dynamic Island / Notch */}
                 <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-6 bg-slate-950 rounded-full z-30 flex items-center justify-center">
@@ -174,7 +174,7 @@ export default function Home() {
                             <Star className="w-3 h-3 text-amber-300 fill-amber-300" />
                             <span className="text-[9px] uppercase tracking-widest text-white font-bold">{PREVIEWS[currentPreview].theme}</span>
                           </div>
-                          <h3 className="font-script text-5xl text-white mb-6 drop-shadow-md">{PREVIEWS[currentPreview].name}</h3>
+                          <h3 className="font-script text-4xl text-white mb-6 drop-shadow-md">{PREVIEWS[currentPreview].name}</h3>
                           
                           <Link href={`/${PREVIEWS[currentPreview].slug}`} className="w-full py-3.5 rounded-xl bg-white/90 backdrop-blur-md text-slate-900 font-bold uppercase tracking-wider text-[10px] flex items-center justify-center gap-2 hover:bg-white transition-all shadow-xl">
                             <Play className="w-3.5 h-3.5 fill-slate-900" /> Live Preview

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import TemplatesGallery from "./TemplatesGallery";
+import TemplatesGallery from "@/app/templates/TemplatesGallery";
 
 export const metadata: Metadata = {
   title: "All Invitation Templates | My Invitation",

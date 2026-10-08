@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Calendar, Clock, Star } from "lucide-react";
-import RSVPForm from "../shared/RSVPForm";
 
 export default function CelestialNight({ data }: { data: any }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,41 +60,6 @@ export default function CelestialNight({ data }: { data: any }) {
             transition={{ duration: 1.5 }}
             className="flex-1 flex flex-col relative z-10"
           >
-            <section className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 pt-12 pb-8">
-              <h3 className="text-indigo-300 text-[10px] tracking-[0.4em] uppercase mb-8">Written in the Stars</h3>
-              <h1 className="font-script text-white text-6xl md:text-7xl mb-6 leading-tight">
-                {data.couple.partner1Name} <br/><span className="text-indigo-400 font-sans text-3xl">&</span><br/> {data.couple.partner2Name}
-              </h1>
-              <p className="text-slate-400 max-w-sm mx-auto font-light leading-relaxed text-sm mt-4">"{data.couple.story}"</p>
-            </section>
-
-            <section className="py-12 px-6">
-              <h2 className="text-center font-heading text-2xl text-white mb-10 tracking-widest uppercase flex items-center justify-center gap-3">
-                 <Star className="w-4 h-4 text-indigo-400" />
-                 Events
-                 <Star className="w-4 h-4 text-indigo-400" />
-              </h2>
-              <div className="flex flex-col gap-6">
-                {data.events.map((event: any, idx: number) => (
-                  <div key={idx} className="bg-slate-900/50 backdrop-blur-md p-6 rounded-3xl border border-indigo-500/20 hover:border-indigo-400/50 transition-colors shadow-[0_0_30px_rgba(99,102,241,0.05)] text-center">
-                    <h3 className="text-2xl font-heading text-indigo-200 mb-6">{event.title}</h3>
-                    <div className="space-y-4 text-slate-300 text-sm flex flex-col items-center">
-                      <div className="flex items-center gap-3"><Calendar className="w-4 h-4 text-indigo-400" /> {event.date}</div>
-                      <div className="flex items-center gap-3"><Clock className="w-4 h-4 text-indigo-400" /> {event.time}</div>
-                      <div className="flex flex-col items-center gap-2 mt-4 pt-4 border-t border-indigo-500/20 w-full"><MapPin className="w-4 h-4 text-indigo-400 mb-1" /> <div><p className="font-medium text-white">{event.venue}</p><p className="text-xs text-slate-400 mt-1">{event.address}</p></div></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section className="py-12 px-6 flex-1 flex flex-col justify-center">
-              <div className="w-full">
-                <div className="bg-slate-900/80 backdrop-blur-xl p-6 rounded-3xl border border-indigo-500/20 text-slate-900">
-                  <RSVPForm events={data.events.map((e:any) => e.title)} invitationId={data.slug} />
-                </div>
-              </div>
-            </section>
           </motion.div>
         )}
       </main>

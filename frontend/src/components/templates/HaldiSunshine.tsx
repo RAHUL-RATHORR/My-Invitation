@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Calendar, Clock, Sun } from "lucide-react";
-import RSVPForm from "../shared/RSVPForm";
 
 /** Haldi Sunshine — marigold yellow + orange, festive and joyful */
 export default function HaldiSunshine({ data }: { data: any }) {
@@ -46,45 +45,6 @@ export default function HaldiSunshine({ data }: { data: any }) {
 
         {isOpen && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.3 }} className="flex-1 flex flex-col">
-            <section className="min-h-[80vh] flex flex-col items-center justify-center text-center px-6 pt-16 pb-8 relative">
-              <div className="absolute top-20 left-1/2 -translate-x-1/2 w-64 h-64 bg-amber-300/40 rounded-full blur-3xl"></div>
-              <p className="relative text-[10px] tracking-[0.35em] uppercase text-orange-600 mb-6">Let the colours begin</p>
-              <h1 className="relative font-script text-6xl text-orange-900 leading-tight">
-                {data.couple.partner1Name}<br /><span className="text-amber-500 text-4xl">&amp;</span><br />{data.couple.partner2Name}
-              </h1>
-              <p className="relative text-orange-800/70 max-w-xs mx-auto italic text-sm mt-6">"{data.couple.story}"</p>
-            </section>
-
-            <section className="py-12 px-6">
-              <h2 className="text-center font-heading text-2xl text-orange-700 mb-10 tracking-widest uppercase">Festivities</h2>
-              <div className="flex flex-col gap-6">
-                {data.events.map((event: any, idx: number) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: idx * 0.1 }}
-                    className="relative bg-white p-8 rounded-3xl border-2 border-dashed border-amber-400 text-center shadow-[0_10px_30px_rgba(245,158,11,0.15)]"
-                  >
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-orange-500 text-white text-[10px] font-bold tracking-widest uppercase">{event.title}</div>
-                    <div className="space-y-3 text-orange-900/80 flex flex-col items-center text-sm mt-2">
-                      <div className="flex items-center gap-3"><Calendar className="w-4 h-4 text-orange-500" /> {event.date}</div>
-                      <div className="flex items-center gap-3"><Clock className="w-4 h-4 text-orange-500" /> {event.time}</div>
-                      <div className="flex flex-col items-center gap-1 mt-3 pt-3 border-t border-amber-200 w-full">
-                        <MapPin className="w-4 h-4 text-orange-500 mb-1" />
-                        <p className="font-medium text-orange-950">{event.venue}</p>
-                        <p className="text-xs opacity-70">{event.address}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </section>
-
-            <section className="py-12 px-6">
-              <RSVPForm events={data.events.map((e: any) => e.title)} invitationId={data.slug} />
-            </section>
           </motion.div>
         )}
       </main>

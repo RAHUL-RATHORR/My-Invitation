@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Calendar, Clock } from "lucide-react";
-import RSVPForm from "../shared/RSVPForm";
 
 export default function RoyalGates({ data }: { data: any }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,41 +48,6 @@ export default function RoyalGates({ data }: { data: any }) {
             transition={{ duration: 1, delay: 0.5 }}
             className="flex-1 flex flex-col"
           >
-            <section className="min-h-[80vh] flex flex-col items-center justify-center text-center px-6 relative pt-12 pb-8">
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-primary/10 via-background to-background -z-10"></div>
-              <h3 className="font-heading text-primary text-[10px] mb-6 tracking-[0.3em] uppercase border-y border-primary/30 py-2 px-6">We are getting married</h3>
-              <h1 className="font-script text-foreground text-6xl my-6 leading-tight">
-                {data.couple.partner1Name} <br/><span className="text-primary text-4xl">&</span><br/> {data.couple.partner2Name}
-              </h1>
-              <p className="text-foreground/80 max-w-sm mx-auto font-light italic text-sm mt-4">"{data.couple.story}"</p>
-            </section>
-
-            <section className="py-12 px-6 bg-secondary/5">
-              <h2 className="text-center font-heading text-2xl text-secondary mb-10 tracking-widest uppercase flex items-center justify-center gap-3">
-                <span className="w-8 h-px bg-primary"></span>
-                Celebrations
-                <span className="w-8 h-px bg-primary"></span>
-              </h2>
-              <div className="flex flex-col gap-6">
-                {data.events.map((event: any, idx: number) => (
-                  <div key={idx} className="bg-card p-8 rounded-t-[3rem] rounded-b-2xl relative overflow-hidden group shadow-lg border border-primary/20 text-center">
-                    <h3 className="text-2xl font-heading text-secondary mb-6">{event.title}</h3>
-                    <div className="space-y-4 text-foreground/80 flex flex-col items-center text-sm">
-                      <div className="flex items-center gap-3"><Calendar className="w-4 h-4 text-primary" /> <span>{event.date}</span></div>
-                      <div className="flex items-center gap-3"><Clock className="w-4 h-4 text-primary" /> <span>{event.time}</span></div>
-                      <div className="flex flex-col items-center gap-2 mt-4 pt-4 border-t border-primary/20 w-full"><MapPin className="w-4 h-4 text-primary mb-1" /> <div><p className="font-medium text-foreground">{event.venue}</p><p className="text-xs opacity-70 mt-1">{event.address}</p></div></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section className="py-12 px-6 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-primary/10 via-background to-background flex-1 flex flex-col justify-center">
-              <div className="w-full relative">
-                 <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-primary/20 rounded-full blur-xl"></div>
-                <RSVPForm events={data.events.map((e:any) => e.title)} invitationId={data.slug} />
-              </div>
-            </section>
           </motion.div>
         )}
       </main>

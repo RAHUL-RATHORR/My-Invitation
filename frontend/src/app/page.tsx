@@ -122,11 +122,7 @@ export default function Home() {
               animate="visible"
               className="lg:w-1/2 space-y-8"
             >
-              <motion.div variants={fadeUp} className="inline-flex items-center gap-4 py-2 px-4 rounded-full border border-primary/30 bg-primary/5 shadow-[0_0_20px_rgba(212,175,55,0.1)]">
-                <Star className="w-4 h-4 text-primary fill-primary animate-pulse" />
-                <span className="text-xs font-bold tracking-[0.2em] uppercase text-primary">India's Premier Invitation Studio</span>
-              </motion.div>
-              
+
               <motion.h1 variants={fadeUp} className="text-5xl lg:text-7xl font-heading leading-tight text-foreground">
                 Craft Your Dream <br />
                 <span className="font-script text-7xl lg:text-9xl block mt-2 bg-clip-text text-transparent bg-linear-to-r from-secondary to-amber-700">Cinematic</span>

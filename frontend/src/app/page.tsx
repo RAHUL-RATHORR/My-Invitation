@@ -289,38 +289,7 @@ export default function Home() {
           </motion.div>
         </section>
 
-        {/* PRICING */}
-        <section id="pricing" className="py-32 bg-secondary/5 border-t border-border overflow-hidden">
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="max-w-7xl mx-auto px-6"
-          >
-            <motion.div variants={fadeUp} className="text-center mb-16">
-              <h2 className="text-4xl font-heading text-secondary mb-4">Investment Plans</h2>
-              <p className="text-foreground/70 uppercase tracking-widest text-sm">Transparent pricing for your special day</p>
-            </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-8 items-center">
-              {[
-                { name: "Basic", price: "₹2,499", desc: "Standard animated design, single page layout, background music, basic RSVP, and WhatsApp share link." },
-                { name: "Premium Cinematic", price: "₹3,999", desc: "Cinematic animations, custom music, live RSVP dashboard, countdown timer, guest wishes wall, and lifetime link.", highlighted: true },
-                { name: "Custom Bespoke", price: "Custom", desc: "Fully custom design with 3D assets, multi-page layout, personalized domain, and dedicated designer." }
-              ].map((plan, i) => (
-                <motion.div variants={fadeUp} key={i} className={`p-8 rounded-3xl border transition-all duration-500 hover:-translate-y-2 ${plan.highlighted ? 'bg-secondary text-secondary-foreground border-secondary shadow-2xl md:scale-105 md:py-12 z-10' : 'bg-card border-border shadow-lg'}`}>
-                  <h3 className="text-2xl font-heading mb-2">{plan.name}</h3>
-                  <div className="text-4xl font-bold mb-6 font-heading">{plan.price}</div>
-                  <p className={`mb-8 font-light leading-relaxed ${plan.highlighted ? 'text-secondary-foreground/80' : 'text-foreground/70'}`}>{plan.desc}</p>
-                  <button className={`w-full py-4 rounded-xl font-bold uppercase tracking-widest text-xs transition-all ${plan.highlighted ? 'bg-primary text-primary-foreground hover:bg-white hover:text-secondary' : 'bg-secondary/10 text-secondary hover:bg-secondary hover:text-secondary-foreground'}`}>
-                    Choose Plan
-                  </button>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </section>
 
       </main>
 

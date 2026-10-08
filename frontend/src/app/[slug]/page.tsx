@@ -3,7 +3,7 @@ import RoyalGates from "@/components/templates/RoyalGates";
 import CelestialNight from "@/components/templates/CelestialNight";
 import FloralWatercolor from "@/components/templates/FloralWatercolor";
 
-export const dynamic = "force-dynamic";
+export const instant = false;
 
 // Mock database simulation for different slugs
 const MOCK_DB: Record<string, any> = {
